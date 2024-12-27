@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
+import { GuardarEnStorage } from '../helpers/GuardarEnStorage';
 
 export const Agregar = () => {
 
-    const titulo = "Añadir pelicula";
-    const [pelicula, setPelicula] = useState({
+    const tituloComponent = "Añadir pelicula";
+    const [peliculaState, setPelicula] = useState({
         titulo: '',
         descripcion: ''
     })
+
+    const {titulo, descripcion} = peliculaState;
 
     const conseguirDatosForm = e => {
         e.preventDefault();
@@ -14,7 +17,7 @@ export const Agregar = () => {
 
         let target = e.target;
         let titulo = target.title.value;
-        let descripcion = target.description;
+        let descripcion = target.description.value;
 
         let peli = {
             id : new Date().getTime(),
@@ -24,14 +27,15 @@ export const Agregar = () => {
 
         setPelicula(peli);
 
-        console.log(pelicula);
+        GuardarEnStorage("pelis", peli);
+
     }
 
   return (
     <div className="add">
-        <h3 className="title"> {titulo} </h3>
+        <h3 className="title"> {tituloComponent} </h3>
 
-        {pelicula.titulo}
+        <strong>{(titulo && descripcion) && "Has creado la pelicula:" + titulo }</strong>  
 
         <form onSubmit={conseguirDatosForm}>
             <input id='title'
