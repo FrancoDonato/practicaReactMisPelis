@@ -113,6 +113,27 @@ button, input[type="submit"], input[type="button"]{
   padding-right: 25px;
 }
 
+.edit_form {
+  margin-top: 10px;
+  border-top: 2px solid #E7E6E7;
+  border-width: 2px;
+}
+ 
+.titulo_editado,
+.descripcion_editada {
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 5px;
+  background: #F6F7F9;
+  color: #454545;
+  width: 80%;
+  opacity: 4;
+  outline: 0;
+  border-color: transparent;
+}
+
 .nav a{
   display: block;
   margin-left: 30px;
@@ -186,5 +207,10 @@ button, input[type="submit"], input[type="button"]{
 
   .peli-item{
       width: 80%;
+  }
+
+  .edit_form{
+    display: flex;
+    flex-direction: column;
   }
 }

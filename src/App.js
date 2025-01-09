@@ -1,10 +1,17 @@
+import { useState } from "react";
 import { Agregar } from "./components/Agregar";
 import { Buscador } from "./components/Buscador";
 import { Contenido } from "./components/Contenido";
 import { Navegacion } from "./components/Navegacion";
 
   function App() {
+
+    const [listadoState, setListado] = useState([]);
+
+
   return (
+
+
     <div className="layout">
         <header className="header">
             <div className="logo">
@@ -15,11 +22,11 @@ import { Navegacion } from "./components/Navegacion";
 
         <Navegacion/>
 
-        <Contenido/>
+        <Contenido listadoState={listadoState} setListado={setListado}/>
 
         <aside className="lateral">
             <Buscador/>
-            <Agregar/>
+            <Agregar setListado={setListado}/>
         </aside>
 
         <footer className="footer">

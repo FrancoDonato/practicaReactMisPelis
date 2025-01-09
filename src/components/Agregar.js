@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { GuardarEnStorage } from '../helpers/GuardarEnStorage';
 
-export const Agregar = () => {
+export const Agregar = ({setListado}) => {
 
     const tituloComponent = "Añadir pelicula";
     const [peliculaState, setPelicula] = useState({
@@ -13,19 +13,22 @@ export const Agregar = () => {
 
     const conseguirDatosForm = e => {
         e.preventDefault();
-        alert("formulario enviado")
 
         let target = e.target;
         let titulo = target.title.value;
-        let descripcion = target.description.value;
+        let descripcion = target.descripcion.value;
 
-        let peli = {
+        const peli = {
             id : new Date().getTime(),
             titulo,
             descripcion,
         }
 
         setPelicula(peli);
+
+        setListado(elementos => {
+            return [...elementos, peli]
+        })
 
         GuardarEnStorage("pelis", peli);
 
@@ -42,8 +45,8 @@ export const Agregar = () => {
                    name='title'
                    type="text"
                    placeholder="Titulo"/>
-            <textarea id='description'
-                      name='description'
+            <textarea id='descripcion'
+                      name='descripcion'
                       placeholder="Descripcion"></textarea>
             <input id='save'
                    type="submit"
