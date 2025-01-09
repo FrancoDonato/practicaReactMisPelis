@@ -214,3 +214,7 @@ button, input[type="submit"], input[type="button"]{
     flex-direction: column;
   }
 }
+
+.no-encontrado{
+  color: #9b0202;
+}

@@ -25,7 +25,7 @@ import { Navegacion } from "./components/Navegacion";
         <Contenido listadoState={listadoState} setListado={setListado}/>
 
         <aside className="lateral">
-            <Buscador/>
+            <Buscador listadoState={listadoState} setListado={setListado}/>
             <Agregar setListado={setListado}/>
         </aside>
 
